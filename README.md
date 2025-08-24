@@ -98,7 +98,7 @@ selfDrivingSimulator/
 ### Setup
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/NareshP215/Self-Driving-Car-Simulation
 cd selfDrivingSimulator
 
 # Install dependencies
