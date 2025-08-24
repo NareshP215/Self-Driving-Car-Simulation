@@ -1,0 +1,33 @@
+# ================================
+# Self-Driving Car Simulation
+# Requirements File
+# ================================
+
+# Core Deep Learning & ML
+tensorflow>=2.10.0
+scikit-learn>=1.0.0
+
+# Data Processing & Utilities
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+pillow>=8.0.0
+
+# Computer Vision & Augmentation
+opencv-python>=4.5.0
+imgaug>=0.4.0
+
+# Web Server & Real-time Communication
+flask>=2.0.0
+flask-socketio>=5.0.0
+eventlet>=0.33.0
+
+# Networking (for Socket.IO stability)
+python-engineio>=4.3.0
+python-socketio>=5.0.0
+
+
+# For Socket.IO stability
+pip install python-engineio==3.13.2
+pip install python-socketio==4.6.1
+
