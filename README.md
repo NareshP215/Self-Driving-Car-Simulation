@@ -7,21 +7,21 @@ Inspired by NVIDIA’s groundbreaking research _End to End Learning for Self-Dri
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Data Processing](#data-processing)
-- [Training Process](#training-process)
-- [Testing & Simulation](#testing--simulation)
-- [Results](#results)
-- [Demo](#demo)
-- [Dependencies](#dependencies)
-- [Future Improvements](#future-improvements)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Model Architecture](#-model-architecture)
+- [Data Processing](#-data-processing)
+- [Training Process](#-training-process)
+- [Testing and Simulation](#-testing-and-simulation)
+- [Results](#-results)
+- [Demo](#-demo)
+- [Dependencies](#-dependencies)
+- [Future Improvements](#-future-improvements)
+- [Troubleshooting](#-troubleshooting)
+- [References](#-references)
 
 ---
 
@@ -41,33 +41,29 @@ The approach follows the **end-to-end learning paradigm** demonstrated by NVIDIA
 ## ✨ Features
 
 ### 🧠 **Deep Learning Model**
+- **NVIDIA-inspired CNN architecture** for end-to-end learning  
+- **Behavioral cloning** approach to learn from human driving data  
+- **Real-time inference** for autonomous driving  
 
-- **NVIDIA-inspired CNN architecture** for end-to-end learning
-- **Behavioral cloning** approach to learn from human driving data
-- **Real-time inference** for autonomous driving
-
-### 📊 **Data Processing & Augmentation**
-
-- **Image preprocessing** (cropping, color space conversion, normalization)
-- **Data augmentation** techniques:
-  - Random panning
-  - Zoom transformations
-  - Brightness adjustments
-  - Horizontal flipping
-- **Data balancing** to handle steering angle distribution
+### 📊 **Data Processing and Augmentation**
+- **Image preprocessing** (cropping, color space conversion, normalization)  
+- **Data augmentation** techniques:  
+  - Random panning  
+  - Zoom transformations  
+  - Brightness adjustments  
+  - Horizontal flipping  
+- **Data balancing** to handle steering angle distribution  
 
 ### 🎮 **Real-time Simulation**
+- **Socket.IO integration** for real-time communication with simulator  
+- **Live telemetry processing** (speed, steering angle, camera feed)  
+- **Autonomous control** with dynamic throttle adjustment  
 
-- **Socket.IO integration** for real-time communication with simulator
-- **Live telemetry processing** (speed, steering angle, camera feed)
-- **Autonomous control** with dynamic throttle adjustment
-
-### 📈 **Training & Monitoring**
-
-- **Batch generation** for efficient training
-- **Training/validation split** for model evaluation
-- **Loss curve visualization** and monitoring
-- **Model checkpointing** and saving
+### 📈 **Training and Monitoring**
+- **Batch generation** for efficient training  
+- **Training/validation split** for model evaluation  
+- **Loss curve visualization** and monitoring  
+- **Model checkpointing** and saving  
 
 ---
 
@@ -80,28 +76,26 @@ selfDrivingSimulator/
 ├── 🏋️ TrainingSimulation.py    # Model training pipeline
 ├── 🎮 TestSimulation.py        # Real-time simulator interface
 ├── 🛠️ utils.py                 # Utility functions and model architecture
-├── 📊 loss_curve.png           # Training loss visualization
+├── 📊 loss\_curve.png           # Training loss visualization
 ├── 🤖 model.h5                 # Trained model file
 ├── 🖼️ test.jpg                 # Test image
 ├── 📁 data/                    # Training data directory
-│ ├── driving_log.csv           # Driving data logs
-│ └── IMG/                      # Training images
+│   ├── driving\_log.csv         # Driving data logs
+│   └── IMG/                    # Training images
 
-```
+````
 
 ---
 
 ## 🚀 Installation
 
 ### Prerequisites
-
-- Python 3.7+
-- TensorFlow/Keras
-- OpenCV
-- Udacity Self-Driving Car Simulator
+- Python 3.7+  
+- TensorFlow/Keras  
+- OpenCV  
+- Udacity Self-Driving Car Simulator  
 
 ### Setup
-
 ```bash
 # Clone the repository
 git clone <your-repo-url>
@@ -109,7 +103,7 @@ cd selfDrivingSimulator
 
 # Install dependencies
 pip install -r requirements.txt
-```
+````
 
 Or install manually:
 
@@ -123,9 +117,9 @@ pip install tensorflow opencv-python pandas numpy matplotlib scikit-learn imgaug
 
 ### 1. **Data Collection**
 
-- Launch the simulator in "Training Mode"
-- Drive manually to collect training data
-- Data gets saved as `driving_log.csv` with corresponding images in `IMG/`
+* Launch the simulator in "Training Mode"
+* Drive manually to collect training data
+* Data gets saved as `driving_log.csv` with corresponding images in `IMG/`
 
 ### 2. **Model Training**
 
@@ -133,11 +127,11 @@ pip install tensorflow opencv-python pandas numpy matplotlib scikit-learn imgaug
 python TrainingSimulation.py
 ```
 
-- Loads and balances training data
-- Applies data augmentation
-- Trains the CNN model
-- Saves the trained model as `model.h5`
-- Generates loss curve visualization
+* Loads and balances training data
+* Applies data augmentation
+* Trains the CNN model
+* Saves the trained model as `model.h5`
+* Generates loss curve visualization
 
 ### 3. **Autonomous Driving**
 
@@ -145,11 +139,11 @@ python TrainingSimulation.py
 python TestSimulation.py
 ```
 
-- Loads the trained model
-- Starts Socket.IO server on port 4567
-- Connects to simulator in "Autonomous Mode"
-- Processes camera feed and predicts steering angles
-- Controls the car in real-time
+* Loads the trained model
+* Starts Socket.IO server on port 4567
+* Connects to simulator in "Autonomous Mode"
+* Processes camera feed and predicts steering angles
+* Controls the car in real-time
 
 ### 4. **Simulator Setup**
 
@@ -161,14 +155,14 @@ python TestSimulation.py
 
 ## 🏗️ Model Architecture
 
-This project adapts the **NVIDIA CNN architecture** introduced in End to End Learning for Self-Driving Cars. The model directly maps raw camera images to steering commands using an end-to-end learning approach.
+This project adapts the **NVIDIA CNN architecture** introduced in *End to End Learning for Self-Driving Cars*. The model directly maps raw camera images to steering commands using an end-to-end learning approach.
 
 ### NVIDIA-Inspired CNN
 
-- **Input:** 66×200×3 YUV images (cropped, normalized, resized)
-- **Convolutions:** 5 layers for feature extraction
-- **Fully Connected:** 3 layers for control decision
-- **Output:** Single steering angle value (regression)
+* **Input:** 66×200×3 YUV images (cropped, normalized, resized)
+* **Convolutions:** 5 layers for feature extraction
+* **Fully Connected:** 3 layers for control decision
+* **Output:** Single steering angle value (regression)
 
 ```python
 # Convolutional Layers
@@ -186,8 +180,8 @@ Dense(10, activation='elu')
 Dense(1, activation='linear')   # Steering angle output
 ```
 
-📌 **Key Insight from NVIDIA’s Research:**
-The network automatically learns to detect useful road features (e.g., road outlines, lane cues) directly from steering data, without explicit labels. This enables robustness across varied conditions (lane/no lane markings, unpaved roads, parking lots, highways).
+📌 **Key Insight:**
+The network automatically learns road features (lane boundaries, curves, etc.) directly from steering data, without explicit labels, making it robust to varied driving conditions.
 
 ---
 
@@ -203,15 +197,15 @@ The network automatically learns to detect useful road features (e.g., road outl
 
 ### Data Augmentation
 
-- Random panning
-- Zooming (1.0–1.2x)
-- Brightness variation (0.4–1.2x)
-- Horizontal flipping with steering inversion
+* Random panning
+* Zooming (1.0–1.2x)
+* Brightness variation (0.4–1.2x)
+* Horizontal flipping with steering inversion
 
 ### Data Balancing
 
-- Steering angle distribution analysis
-- Reduces bias from straight-driving data
+* Analyze steering angle distribution
+* Reduce bias from straight-driving data
 
 ---
 
@@ -219,36 +213,36 @@ The network automatically learns to detect useful road features (e.g., road outl
 
 **Configuration:**
 
-- Batch Size: 64
-- Epochs: 10
-- Steps per Epoch: 300
-- Validation Steps: 200
-- Optimizer: Adam (lr=0.0001)
-- Loss Function: Mean Squared Error (MSE)
+* Batch Size: 64
+* Epochs: 10
+* Steps per Epoch: 300
+* Validation Steps: 200
+* Optimizer: Adam (lr=0.0001)
+* Loss Function: Mean Squared Error (MSE)
 
 **Split:**
 
-- Training: 80% with augmentation
-- Validation: 20% without augmentation
+* Training: 80% with augmentation
+* Validation: 20% without augmentation
 
 **Features:**
 
-- Real-time batch generation
-- On-the-fly augmentation
-- Validation monitoring
-- Loss curve visualization
-- Model checkpointing
+* Real-time batch generation
+* On-the-fly augmentation
+* Validation monitoring
+* Loss curve visualization
+* Model checkpointing
 
 ---
 
-## 🎮 Testing & Simulation
+## 🎮 Testing and Simulation
 
-- **Socket.IO** server for communication
-- **Telemetry**: speed, steering, camera feed
-- **Image preprocessing** pipeline
-- **Model inference** for steering prediction
-- **Dynamic throttle** control
-- **Error handling** and safety
+* **Socket.IO** server for communication
+* **Telemetry:** speed, steering, camera feed
+* **Image preprocessing** pipeline
+* **Model inference** for steering prediction
+* **Dynamic throttle** control
+* **Error handling** and safety
 
 ---
 
@@ -256,22 +250,22 @@ The network automatically learns to detect useful road features (e.g., road outl
 
 ### Training Metrics
 
-- Model successfully trains on simulator data
-- Loss curves saved as `loss_curve.png`
-- Validation loss monitoring prevents overfitting
+* Model successfully trains on simulator data
+* Loss curves saved as `loss_curve.png`
+* Validation loss monitoring prevents overfitting
 
 ### Performance
 
-- Real-time inference (\~30 FPS)
-- Smooth steering predictions
-- Successful autonomous navigation
-- Adaptive speed control
+* Real-time inference (\~30 FPS)
+* Smooth steering predictions
+* Successful autonomous navigation
+* Adaptive speed control
 
 ---
 
 ## 🎥 Demo
 
-_(Insert a GIF or screenshot of the simulator driving autonomously here)_
+*(Insert a GIF or screenshot of the simulator driving autonomously here)*
 
 ```md
 ![Demo](demo.gif)
@@ -284,32 +278,33 @@ _(Insert a GIF or screenshot of the simulator driving autonomously here)_
 See [`requirements.txt`](requirements.txt) for the full list.
 Key libraries include:
 
-- TensorFlow/Keras
-- OpenCV
-- Flask-SocketIO + Eventlet
-- NumPy, Pandas, Matplotlib, Scikit-learn
-- ImgAug, Pillow
+* TensorFlow/Keras
+* OpenCV
+* Flask-SocketIO + Eventlet
+* NumPy, Pandas, Matplotlib, Scikit-learn
+* ImgAug, Pillow
 
 ---
 
 ## 🔮 Future Improvements
 
-- Integrate lane detection for better road awareness
-- Add traffic sign recognition
-- Deploy on real-world RC car with Raspberry Pi
-- Implement reinforcement learning for adaptive driving
+* Integrate lane detection for better road awareness
+* Add traffic sign recognition
+* Deploy on real-world RC car with Raspberry Pi
+* Implement reinforcement learning for adaptive driving
 
 ---
 
 ## 🔧 Troubleshooting
 
-- **Model not loading:** Check file paths in `TestSimulation.py`
-- **Simulator connection issues:** Ensure port 4567 is available
-- **Poor driving performance:** Collect more diverse training data
-- **Training errors:** Verify data paths and image integrity
+* **Model not loading:** Check file paths in `TestSimulation.py`
+* **Simulator connection issues:** Ensure port 4567 is available
+* **Poor driving performance:** Collect more diverse training data
+* **Training errors:** Verify data paths and image integrity
 
 ---
 
 ## 📚 References
 
-- `end-to-end-dl-using-px.pdf`, NVIDIA, 2016.
+- NVIDIA, 2016. *End to End Learning for Self-Driving Cars*  
+[Read the paper (PDF)](end-to-end-dl-using-px.pdf)
